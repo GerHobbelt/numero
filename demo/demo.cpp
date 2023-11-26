@@ -64,7 +64,7 @@ void convert_inputs(const std::vector<std::string> &inputs,
             }
         }
         
-        std::chrono::system_clock::time_point before_convert, after_convert;
+        decltype(hr_clock::now()) before_convert, after_convert;
         
         if (timing_mode != timing_mode_t::dont_time)
             before_convert = hr_clock::now();
@@ -311,7 +311,7 @@ int main(int argc, const char** argv)
     }
 
     num::converter_c converter(conversion_options);
-    std::chrono::system_clock::time_point before_convert, after_convert;
+    decltype(hr_clock::now()) before_convert, after_convert;
         
     if (timing_mode != timing_mode_t::time_all_durations || timing_mode != timing_mode_t::time_total_duration)
         before_convert = hr_clock::now();
