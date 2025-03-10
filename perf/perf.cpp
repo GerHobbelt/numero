@@ -62,6 +62,12 @@ static const std::vector<std::string> example_numerals = {
     "two million million"
 };
 
+
+#if defined(BUILD_MONOLITHIC)
+#define main   numero_perf_main
+#endif
+
+extern "C"
 int main(int argc, const char** argv)
 {
     using namespace boost::program_options;

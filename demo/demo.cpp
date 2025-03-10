@@ -11,6 +11,8 @@
 
 using hr_clock = std::chrono::high_resolution_clock;
 
+namespace {
+
 enum class output_mode_t
 {
     unset = 0,
@@ -142,6 +144,13 @@ void process_program_options(const boost::program_options::variables_map &vm,
     }
 }
 
+}
+
+#if defined(BUILD_MONOLITHIC)
+#define main   numero_demo_main
+#endif
+
+extern "C"
 int main(int argc, const char** argv)
 {
     using namespace boost::program_options;

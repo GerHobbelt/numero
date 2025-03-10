@@ -38,6 +38,12 @@ static inline void ltrim_zeroes(std::string &s)
         s = "0";
 }
 
+
+#if defined(BUILD_MONOLITHIC)
+#define main   numero_generator_main
+#endif
+
+extern "C"
 int main(int argc, const char** argv)
 {
     using namespace boost::program_options;
